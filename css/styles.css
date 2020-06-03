@@ -1,0 +1,278 @@
+/* reset do CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    /*background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;*/
+    
+    font-family: 'Source Code Pro', monospace;
+    height: 100vh;
+    font-size: 12px;
+}
+
+/* breakpoint (pontos de quebra, que precisam de um reajuste) */
+/* Se a tela possuir, pelo menos, 400px */
+@media (min-width: 400px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Se a tela possuir, pelo menos, 600px */
+@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Se a tela possuir, pelo menos, 1200px */
+@media (min-width: 1200px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+#divcontato,
+#gradient {
+    background-image: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+    /*background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);*/
+    /*background-image: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);*/
+    /*background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);*/
+    /*background-image: linear-gradient(45deg, #30cfd0 0%, #330867 100%);*/
+    /*background: linear-gradient(45deg, rgb(104, 52, 153), #851de0, #aa26da, #c355f5, #f1fa3c);*/
+    background-size: 600% 600%;
+    background-attachment: fixed;
+    animation: colors 15s ease infinite;
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.menu {
+    font-family: 'Hind Madurai', sans-serif;
+    background-color: rgb(248, 247, 247);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    box-shadow: 0px 0.5px 6px rgb(116, 116, 116);
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 20px;
+    transition: text-shadow, 0.7s;
+}
+
+.menu a:active,
+.menu a:hover{  
+    text-decoration: underline;
+}
+
+a {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.titulo {
+    opacity: 0;
+    animation: 2s linear 0.5s titleAnimation forwards;
+}
+
+@keyframes titleAnimation {
+    from {
+
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.site-subtitle,
+.site-title {
+    color: whitesmoke;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 3em;
+    font-family: 'Major Mono Display', monospace;
+    text-shadow: 0.5px 0.5px 3px ;
+}
+
+.site-subtitle {
+    font-family: 'Source Code Pro', monospace;
+    text-shadow: 1.5px 1.5px 2px yellow;
+}
+
+#divsobre,
+#divproj {
+    background-color: white;
+}
+
+.sobre,
+.contato,
+.portfolio {
+    padding: 2em;
+    min-height: 100vh;
+    /*color: whitesmoke;*/
+}
+
+@media (min-width: 1100px) {
+    .container {
+        max-width: 1100px;
+
+        /* margin auto é interpretada apenas no eixo horizontal */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+    color: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 2em;
+    margin-top: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.contato h2 {
+    margin-top: 3.2em;
+    margin-bottom: 2.5em;
+    color: whitesmoke;
+}
+
+.sobre p {
+    color: black;
+    margin-bottom: 1.4em;
+    text-align: justify;
+    text-indent: 2em;
+}
+
+.sobre a {
+    color: cyan;
+}
+
+.sobre a:hover {
+    text-decoration: underline;
+}
+
+.sobre .profilepic {
+    margin-left: 2em;
+    margin-bottom: 2em;
+    float: right;
+}
+
+.sobre .profilepic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 0px 0.5px 6px rgb(116, 116, 116);
+}
+
+.portfolio .grid {
+    /* o grid não força colunas; a quantidade de colunas deve ser declarada */
+    display: grid;
+    /* distância do grid */
+    gap: 2em;
+}
+
+@media (min-width: 560px) {
+    .portfolio .grid {
+        grid-template-columns: 240px 240px;
+    }
+
+    .sobre .profilepic img {
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 880px) {
+    .portfolio .grid {
+        grid-template-columns: repeat(3, 260px);
+        align-content: center;
+        justify-content: center;
+        height: calc(100vh - 8em - 48px);
+    }
+
+    .sobre .profilepic img {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+.portfolio figure {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.img-portfolio {
+    height: 180px;
+    width: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 500ms;
+}
+
+.img-portfolio:hover{
+    transform: scale(1.1);
+}
+
+.contato .icons {
+    text-align: center;
+}
+
+.contato a {
+    color: whitesmoke;
+    font-size: 6em;
+    transition: text-shadow 0.3s;
+}
+
+.contato a:active,
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
